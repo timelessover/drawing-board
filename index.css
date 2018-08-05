@@ -4,8 +4,22 @@ body{
 #canvas{
     position: relative;
 }
-button{
+.actions{
     position: fixed;
     left:0;
     bottom:0;
+}
+.actions{
+    position: fixed;
+    bottom:0;
+    left:0;
+}
+.actions>#brush{
+    display: none;
+}
+.actions.x>#brush{
+    display: inline-block;
+}
+.actions.x>#eraser{
+    display: none;
 }
