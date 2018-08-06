@@ -10,12 +10,46 @@ function drawCircle(x, y, radius) {
 }
 function drawLine(x1, y1, x2, y2) {
     ctx.beginPath()
-    ctx.strokeStyle = 'black'
     ctx.moveTo(x1, y1)
-    ctx.lineWidth = 3
+    ctx.lineWidth = lineWidth
     ctx.lineTo(x2, y2)
     ctx.stroke()
     ctx.closePath()
+}
+red.onclick = function(){
+    ctx.strokeStyle = 'red'
+    red.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+green.onclick = function(){
+    ctx.strokeStyle = 'green'
+    red.classList.remove('active')
+    green.classList.add('active')
+    blue.classList.remove('active')
+}
+blue.onclick = function () {
+    ctx.strokeStyle = 'blue'
+    red.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.add('active')
+}
+thin.onclick = function(){
+    lineWidth = 5
+}
+thick.onclick = function(){
+    lineWidth = 8
+}
+clear.onclick = function(){
+    ctx.clearRect(0,0,yyy.width,yyy.height)
+}
+download.onclick = function(){
+    var url = yyy.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = '我的画'
+    a.click()
 }
 var eraserEnabled = false
 /********/ 
@@ -27,7 +61,6 @@ function listenTOUser(canvas){
         canvas.ontouchstart = function(a){
             var x = a.touches[0].clientX
             var y = a.touches[0].clientY
-            console.log(x,y)
             using = true
             if (eraserEnabled) {
                 ctx.clearRect(x - 5, y - 5, 10, 10)
@@ -94,13 +127,15 @@ function listenTOUser(canvas){
 /*****/
 var eraserEnabled = false
 
+pen.onclick = function(){
+    eraserEnabled = false
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+}
 eraser.onclick = function(){
-    eraserEnabled = !eraserEnabled
-    if(!eraserEnabled){
-        eraser.textContent = "橡皮擦"
-    } else{
-        eraser.textContent = "画笔"
-    }
+    eraserEnabled = true
+    eraser.classList.add('active')
+    pen.classList.remove('active')
 }
 
 

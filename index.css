@@ -1,5 +1,11 @@
 body{
     margin:0;
+    overflow: hidden;
+}
+*{
+    list-style: none;
+    margin: 0;
+    padding:0;
 }
 #canvas{
     position: relative;
@@ -11,8 +17,15 @@ body{
 }
 .actions{
     position: fixed;
-    bottom:0;
+    top:0;
     left:0;
+    padding: 10px;
+}
+.actions svg{
+    width:1.5em;
+    height:1.5em;
+    transform: all 1.5s;
+    margin:0 10px;
 }
 .actions>#brush{
     display: none;
@@ -22,4 +35,51 @@ body{
 }
 .actions.x>#eraser{
     display: none;
+}
+.actions svg.active{
+    fill:red;
+    transform: scale(1.2)
+}
+.colors{
+    position: fixed;
+    top:40px;
+    left:20px;
+}
+.colors>li{
+    width:40px;
+    height:40px;
+    margin:10px 0;
+    border-radius: 50%;
+    transition: all 0.5s
+}
+.colors>li.green{
+    background: green;
+}
+.colors>li.blue{
+    background:blue;   
+}
+.colors>li.red{
+    background:red;
+}
+.colors>li.active{
+   transform: scale(1.2);
+   box-shadow: 
+}
+.sizes{
+    position:fixed;
+    right:30px;
+    top:10px;
+}
+.sizes > li{
+    margin:20px 0;
+}
+.sizes>.thin{
+    height:0;
+    width:20px;
+    border-top:3px solid black;
+}
+.sizes>.thick{
+    height:0;
+    width:20px;
+    border-top:10px solid black;
 }
