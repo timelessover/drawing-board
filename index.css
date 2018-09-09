@@ -52,6 +52,9 @@ body{
     border-radius: 50%;
     transition: all 0.5s
 }
+.colors>li.black{
+    background:black;   
+}
 .colors>li.green{
     background: green;
 }
@@ -63,7 +66,6 @@ body{
 }
 .colors>li.active{
    transform: scale(1.2);
-   box-shadow: 
 }
 .sizes{
     position:fixed;

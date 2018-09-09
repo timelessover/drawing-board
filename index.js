@@ -1,7 +1,7 @@
-var yyy = document.getElementById('canvas')
-var ctx = yyy.getContext('2d');
-autoSetCanvasSize(yyy)
-listenTOUser(yyy)
+var canvas = document.getElementById('canvas')
+var ctx = canvas.getContext('2d');
+autoSetCanvasSize(canvas)
+listenTOUser(canvas)
 function drawCircle(x, y, radius) {
     ctx.beginPath()
     ctx.fillStyle = 'black'
@@ -11,28 +11,42 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
     ctx.beginPath()
     ctx.moveTo(x1, y1)
-    ctx.lineWidth = lineWidth
+    if (ctx.lineWidth === 1){
+        ctx.lineWidth=lineWidth = 5
+    }else{
+        ctx.lineWidth = lineWidth
+    }
     ctx.lineTo(x2, y2)
     ctx.stroke()
     ctx.closePath()
+}
+black.onclick = function () {
+    ctx.strokeStyle = 'black'
+    black.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+    red.classList.remove('active')
 }
 red.onclick = function(){
     ctx.strokeStyle = 'red'
     red.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
+    black.classList.remove('active')
 }
 green.onclick = function(){
     ctx.strokeStyle = 'green'
     red.classList.remove('active')
     green.classList.add('active')
     blue.classList.remove('active')
+    black.classList.remove('active')
 }
 blue.onclick = function () {
     ctx.strokeStyle = 'blue'
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.add('active')
+    black.classList.remove('active')
 }
 thin.onclick = function(){
     lineWidth = 5
@@ -41,10 +55,10 @@ thick.onclick = function(){
     lineWidth = 8
 }
 clear.onclick = function(){
-    ctx.clearRect(0,0,yyy.width,yyy.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height)
 }
 download.onclick = function(){
-    var url = yyy.toDataURL('image/png')
+    var url = canvas.toDataURL('image/png')
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
@@ -94,10 +108,11 @@ function listenTOUser(canvas){
             var y = a.clientY
             using = true
             if (eraserEnabled) {
-                ctx.clearRect(x - 5, y - 5, 10, 10)
+                ctx.clearRect(x - 5, y - 5, 20, 20)
             } else {
                 lastPoint = { "x": x, "y": y }
             }
+            
 
         }
         //动鼠标
@@ -107,7 +122,7 @@ function listenTOUser(canvas){
             if (!using) { return }
             if (eraserEnabled) {
 
-                ctx.clearRect(x - 5, y - 5, 10, 10)
+                ctx.clearRect(x - 5, y - 5, 20, 20)
             } else {
 
                 var newPoint = { 'x': x, 'y': y }
