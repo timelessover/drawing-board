@@ -41,17 +41,21 @@ body{
     fill:red;
     transform: scale(1.2);
 }
+
 .colors{
     position: fixed;
-    top:40px;
-    left:20px;
+    top:60px;
+    left:0px;
+    height:300px;
+    width:100px;
+    text-align: center;
 }
 .colors>li{
     width:40px;
     height:40px;
-    margin:10px 0;
     border-radius: 50%;
-    transition: all 0.5s
+    transition: all 0.5s;
+    margin:10px auto;
 }
 .colors>li.black{
     background:black;   
@@ -67,22 +71,43 @@ body{
 }
 .colors>li.active{
    transform: scale(1.2);
+   box-shadow: 7px 3px 18px 0px rgba(50, 69, 50, 0.7);
+}
+.colors > li:hover{
+    cursor: pointer;
 }
 .sizes{
     position:fixed;
     right:30px;
-    top:10px;
+    top:30px;
+    height:200px;
+    width:100px;
 }
 .sizes > li{
-    margin:20px 0;
+    margin:40px 0;
+    height:20px;
+    width:50px;
+    transition: all 0.5s;
+}
+.sizes > li:hover{
+    cursor: pointer;
+}
+.sizes > li.active{
+   transform: scale(1.2);
+   box-shadow: 7px 3px 18px 0px rgba(50, 69, 50, 0.7);
 }
 .sizes>.thin{
     height:0;
     width:20px;
-    border-top:3px solid black;
+    border-top:5px solid black;
 }
 .sizes>.thick{
     height:0;
     width:20px;
     border-top:10px solid black;
+}
+.sizes>.thick2{
+    height:0;
+    width:20px;
+    border-top:12px solid black;
 }

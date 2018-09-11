@@ -50,9 +50,21 @@ blue.onclick = function () {
 }
 thin.onclick = function(){
     lineWidth = 5
+    thin.classList.add('active')
+    thick.classList.remove('active')
+    thick2.classList.remove('active')
 }
 thick.onclick = function(){
     lineWidth = 8
+    thick.classList.add('active')
+    thin.classList.remove('active')
+    thick2.classList.remove('active')
+}
+thick2.onclick = function () {
+    lineWidth = 12
+    thick2.classList.add('active')
+    thin.classList.remove('active')
+    thick.classList.remove('active')
 }
 clear.onclick = function(){
     ctx.clearRect(0,0,canvas.width,canvas.height)
