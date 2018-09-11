@@ -9,7 +9,7 @@ body{
 }
 #canvas{
     position: relative;
-    cursor:url("imgs/pen.ico"),auto;
+
 }
 .actions{
     position: fixed;
@@ -39,7 +39,7 @@ body{
 }
 .actions svg.active{
     fill:red;
-    transform: fscale(1.2)
+    transform: scale(1.2);
 }
 .colors{
     position: fixed;

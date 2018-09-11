@@ -109,10 +109,11 @@ function listenTOUser(canvas){
             using = true
             if (eraserEnabled) {
                 ctx.clearRect(x - 5, y - 5, 20, 20)
+                canvas.style.cursor = 'url("imgs/eraser.ico"), auto'
             } else {
                 lastPoint = { "x": x, "y": y }
+                canvas.style.cursor = 'url("imgs/pen.ico"), auto'
             }
-            
 
         }
         //动鼠标
@@ -134,6 +135,7 @@ function listenTOUser(canvas){
         //松开鼠标
         canvas.onmouseup = function (aaa) {
             using = false
+            canvas.style.cursor = 'auto'
         }
     }
     }
