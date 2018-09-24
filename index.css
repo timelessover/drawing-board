@@ -28,6 +28,9 @@ body{
     transform: all 1.5s;
     margin:0 10px;
 }
+.actions svg:hover{
+    cursor: pointer;
+}
 .actions>#brush{
     display: none;
 }
